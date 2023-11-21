@@ -32,12 +32,16 @@ const tableentries=entries.map((entry) =>
     const dobcell=`<td>${new Date(entry.dob).toISOString().slice(0,10)}</td>`;
     const accepttermscell=`<td>${entry.acceptterms ? 'true' : 'false'}</td>`;
      const today = new Date();
-      const age = today.getFullYear() - entry.dob.getFullYear();
-      const monthDiff = today.getMonth() - entry.dob.getMonth();
+      const age = today.getFullYear() - dob.getFullYear();
+      const monthDiff = today.getMonth() - dob.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+        age--;
+      }
+  
       if (age < 18 || age > 55) {
         alert('Age must be between 18 and 55.');
         return;
-        else
+    else
         const row=`<tr>${namecell} ${emailcell} ${passwordcell} ${dobcell} ${accepttermscell}</tr>`;
         return row;
 }).join("\n");
