@@ -44,12 +44,10 @@ const table = `<table><tr>
 <th>accepted T&C</th>
 </tr>${tableentries} </table>`;
 
-let details=document.getElementById("user_details");
+let details=document.getElementById("user_entries");
 
 details.innerHTML = table;
 }
-
-
 
 
 
