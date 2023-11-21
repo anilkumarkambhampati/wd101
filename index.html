@@ -1,32 +1,40 @@
 <html>
-  <head>
-    <link href="index.css">
-  </head>
-  <body>
-    <form>
-      <center>
-        <div class="container">
-        <h1>Registration Form</h1>
-          
-      <label for="name">Name</label>
-      <input required type="text" id="name" name="name" placeholder="Enter name"><br>
-        
-        <label for="email">Email</label>
-        <input required type="email" id="email" name="email" placeholder="Enter email"><br>
-        
-        <label for="password">Password</label>
-        <input required type="password" id="password" name="password" placeholder="Enter password"><br>
 
-        <label for="dob">DOB</label>
-        <input required type="date" id="dob" name="dob"><br>
+<head>
+    <link rel="stylesheet" href="submission.css">
+</head>
 
-        <input required type="checkbox" id="acceptterms" name="acceptterms">
-        <label for="acceptterms">Accept terms&conditions</label><br>
-          
-        <button type="submit">submit</button>
+<body>
+    <form id="user_form">
+        <center>
+            <div class="container">
 
-        </div>
-      </center>
+                <h1>Registration Form</h1>
+
+                <label for="name">Name:</label>
+                <input required type="text" id="name" name="name" placeholder="Enter name"><br><br>
+
+                <label for="email">Email:</label>
+                <input required type="email" id="email" name="email" placeholder="Enter email"><br><br>
+
+                <label for="password">Password:</label>
+                <input required type="password" id="password" name="password" placeholder="Enter password"><br><br>
+
+                <label for="dob">DOB:</label>
+                <input required type="date" id="dob" name="dob"><br><br>
+
+                <input required type="checkbox" id="acceptterms" name="acceptterms">
+                <label for="acceptterms">Accept terms&conditions</label><br><br>
+
+                <button type="submit">submit</button>
+            </div>
+            <h1>Entries</h1>
+        </center>
+        <div id="user_entries"></div>
+        <script src="submit.js">
+        </script>
+
     </form>
-  </body>
+</body>
+
 </html>
