@@ -42,11 +42,9 @@ const tableentries=entries.map((entry) =>
         alert('Age must be between 18 and 55.');
         return;
       }
-      else
-      {
         const row=`<tr>${namecell} ${emailcell} ${passwordcell} ${dobcell} ${accepttermscell}</tr>`;
         return row;
-      }
+      
 }).join("\n");
 
 const table = `<table><tr>
