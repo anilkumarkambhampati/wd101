@@ -32,9 +32,9 @@ const tableentries=entries.map((entry) =>
     const dobcell=`<td>${new Date(entry.dob).toISOString().slice(0,10)}</td>`;
     const accepttermscell=`<td>${entry.acceptterms ? 'true' : 'false'}</td>`;
      const today = new Date();
-      const age = today.getFullYear() - dob.getFullYear();
-      const monthDiff = today.getMonth() - dob.getMonth();
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+      const age = today.getFullYear() - dobcell.getFullYear();
+      const monthDiff = today.getMonth() - dobcell.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dobcell.getDate())) {
         age--;
       }
   
