@@ -31,17 +31,27 @@ const tableentries=entries.map((entry) =>
     const passwordcell=`<td>${entry.password}</td>`;
     const dobcell=`<td>${new Date(entry.dob).toISOString().slice(0,10)}</td>`;
     const accepttermscell=`<td>${entry.acceptterms ? 'true' : 'false'}</td>`;
-
-    const row=`<tr>${namecell} ${emailcell} ${passwordcell} ${dobcell} ${accepttermscell}</tr>`;
-    return row;
+     const today = new Date();
+      const age = today.getFullYear() - entry.dob.getFullYear();
+      const monthDiff = today.getMonth() - entry.dob.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+        age--;
+      }
+  
+      if (age < 18 || age > 55) {
+        alert('Age must be between 18 and 55.');
+        return;
+        else
+        const row=`<tr>${namecell} ${emailcell} ${passwordcell} ${dobcell} ${accepttermscell}</tr>`;
+        return row;
 }).join("\n");
 
 const table = `<table><tr>
 <th>Name</th>
 <th>Email</th>
-<th>password</th>
-<th>DOB</th>
-<th>accepted T&C</th>
+<th>Password</th>
+<th>dob</th>
+<th>accepted terms?</th>
 </tr>${tableentries} </table>`;
 
 let details=document.getElementById("user_entries");
