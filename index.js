@@ -30,7 +30,7 @@ const tableentries=entries.map((entry) =>
     const emailcell=`<td>${entry.email}</td>`;
     const passwordcell=`<td>${entry.password}</td>`;
     const dobcell=`<td>${entry.dob.toISOString().slice(0, 10)}</td>`;
-    const accepttermscell=`<td>${acceptterms ? 'true' : 'false'}</td>`;
+    const accepttermscell=`<td>${entry.acceptterms ? 'true' : 'false'}</td>`;
 
     const row=`<tr>${namecell} ${emailcell} ${passwordcell} ${dobcell} ${accepttermscell}</tr>`;
     return row;
