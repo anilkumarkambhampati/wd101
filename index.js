@@ -34,10 +34,6 @@ const tableentries=entries.map((entry) =>
      const today = new Date();
       const age = today.getFullYear() - entry.dob.getFullYear();
       const monthDiff = today.getMonth() - entry.dob.getMonth();
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
-        age--;
-      }
-  
       if (age < 18 || age > 55) {
         alert('Age must be between 18 and 55.');
         return;
