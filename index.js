@@ -41,7 +41,9 @@ const tableentries=entries.map((entry) =>
       if (age < 18 || age > 55) {
         alert('Age must be between 18 and 55.');
         return;
+      
       }
+
       const row=`<tr>${namecell} ${emailcell} ${passwordcell} ${dobcell} ${accepttermscell}</tr>`;
        return row;
       
