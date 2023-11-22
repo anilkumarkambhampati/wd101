@@ -1,86 +1,48 @@
-
-let userform = document.getElementById("user_form");
-
-const retrieve=() =>
-{
-let entries = localStorage.getItem("user_entries");
-if(entries)
-{
-    entries = JSON.parse(entries);
-}
-else
-{
-    entries=[];
-}
-return entries;
-}
-let userentry = retrieve();
-
-
-
-
-const display=() =>{ 
-const entries = retrieve();
-
-
-
-const tableentries=entries.map((entry) =>
-{
-    const namecell=`<td>${entry.name}</td>`;
-    const emailcell=`<td>${entry.email}</td>`;
-    const passwordcell=`<td>${entry.password}</td>`;
-    const dobcell=`<td>${new Date(entry.dob).toISOString().slice(0,10)}</td>`;
-    const accepttermscell=`<td>${entry.acceptterms ? 'true' : 'false'}</td>`;
-
-      const row=`<tr>${namecell} ${emailcell} ${passwordcell} ${dobcell} ${accepttermscell}</tr>`;
-       return row;
-      userform.reset;
-}).join("\n");
-
-/*const table = `<table><tr>
-<th>Name</th>
-<th>Email</th>
-<th>Password</th>
-<th>dob</th>
-<th>accepted terms?</th>
-</tr>${tableentries} </table>`;
-
-let details=document.getElementById("user_entries");
-
-details.innerHTML = table;*/
-}
-
-
-
-
-
-
-
-
-
-const saveform=(event) =>
-{
-    event.preventDefault();
-    const name=document.getElementById("name").value;
-    const email=document.getElementById("email").value;
-    const password=document.getElementById("password").value;
-    const dob=document.getElementById("dob").value;
-    const acceptterms=document.getElementById("acceptterms").checked;
-
-    const entry={
-        name,
-        email,
-        password,
-        dob,
-        acceptterms
-    };
-
-    userentry.push(entry);
-    localStorage.setItem("user_entries",JSON.stringify(userentry));
-    display();
-}
-
-
-userform.addEventListener("submit",saveform);
-
-display();
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('registrationForm');
+    const tableBody = document.querySelector('#userTable tbody');
+  
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const dobInput = document.getElementById('dob');
+      const dob = new Date(dobInput.value);
+      const terms = document.getElementById('terms').checked;
+      //to specify age limit
+      const today = new Date();
+      const age = today.getFullYear() - dob.getFullYear();
+      const monthDiff = today.getMonth() - dob.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+        age--;
+      }
+  
+      if (age < 18 || age > 55) {
+        alert('Age must be between 18 and 55.');
+        return;
+      }
+      const newRow = tableBody.insertRow();
+      newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${email}</td>
+        <td>${password}</td>
+        <td>${dob.toISOString().slice(0, 10)}</td>
+        <td>${terms ? 'Yes' : 'No'}</td>
+      `;
+      const userData = { name, email, password, dob: dob.toISOString().slice(0, 10), terms };
+      localStorage.setItem('userData', JSON.stringify(userData));
+      form.reset();
+    });
+    const savedData = JSON.parse(localStorage.getItem('userData'));
+    if (savedData) {
+      const newRow = tableBody.insertRow();
+      newRow.innerHTML = `
+        <td>${savedData.name}</td>
+        <td>${savedData.email}</td>
+        <td>${savedData.password}</td>
+        <td>${savedData.dob}</td>
+        <td>${savedData.terms ? 'Yes' : 'No'}</td>
+      `;
+    }
+  });
