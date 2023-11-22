@@ -34,7 +34,7 @@ const tableentries=entries.map((entry) =>
 
       const row=`<tr>${namecell} ${emailcell} ${passwordcell} ${dobcell} ${accepttermscell}</tr>`;
        return row;
-      form.reset;
+      userform.reset;
 }).join("\n");
 
 const table = `<table><tr>
