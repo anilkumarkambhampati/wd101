@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('registrationForm');
+    const form = document.getElementById('user_form');
     const tableBody = document.querySelector('#userTable tbody');
   
     form.addEventListener('submit', function(event) {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const password = document.getElementById('password').value;
       const dobInput = document.getElementById('dob');
       const dob = new Date(dobInput.value);
-      const terms = document.getElementById('terms').checked;
+      const terms = document.getElementById('acceptterms').checked;
       //to specify age limit
       const today = new Date();
       const age = today.getFullYear() - dob.getFullYear();
