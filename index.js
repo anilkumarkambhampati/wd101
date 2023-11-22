@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>${email}</td>
         <td>${password}</td>
         <td>${dob.toISOString().slice(0, 10)}</td>
-        <td>${terms ? 'Yes' : 'No'}</td>
+        <td>${terms ? 'true' : 'false'}</td>
       `;
       const userData = { name, email, password, dob: dob.toISOString().slice(0, 10), terms };
       localStorage.setItem('userData', JSON.stringify(userData));
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>${savedData.email}</td>
         <td>${savedData.password}</td>
         <td>${savedData.dob}</td>
-        <td>${savedData.terms ? 'Yes' : 'No'}</td>
+        <td>${savedData.terms ? 'true' : 'false'}</td>
       `;
     }
   });
