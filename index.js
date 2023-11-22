@@ -34,15 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('userData', JSON.stringify(userData));
       form.reset();
     });
-    const savedData = JSON.parse(localStorage.getItem('userData'));
-    if (savedData) {
+    const savedD = JSON.parse(localStorage.getItem('userData'));
+    if (savedD) {
       const newRow = tableBody.insertRow();
       newRow.innerHTML = `
-        <td>${savedData.name}</td>
-        <td>${savedData.email}</td>
-        <td>${savedData.password}</td>
-        <td>${savedData.dob}</td>
-        <td>${savedData.terms ? 'true' : 'false'}</td>
+        <td>${savedD.name}</td>
+        <td>${savedD.email}</td>
+        <td>${savedD.password}</td>
+        <td>${savedD.dob}</td>
+        <td>${savedD.terms ? 'true' : 'false'}</td>
       `;
     }
   });
