@@ -37,7 +37,7 @@ const tableentries=entries.map((entry) =>
       userform.reset;
 }).join("\n");
 
-const table = `<table><tr>
+/*const table = `<table><tr>
 <th>Name</th>
 <th>Email</th>
 <th>Password</th>
@@ -47,7 +47,7 @@ const table = `<table><tr>
 
 let details=document.getElementById("user_entries");
 
-details.innerHTML = table;
+details.innerHTML = table;*/
 }
 
 
