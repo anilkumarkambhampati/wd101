@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     form.addEventListener('submit', function(event) {
       event.preventDefault();
-      const name = document.getElementById('name').value;
+      const namecell = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       const dobInput = document.getElementById('dob');
@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const newRow = tableBody.insertRow();
       newRow.innerHTML = `
-        <td>${name}</td>
+        <td>${namecell}</td>
         <td>${email}</td>
         <td>${password}</td>
         <td>${dob.toISOString().slice(0, 10)}</td>
         <td>${terms ? 'true' : 'false'}</td>
       `;
-      const userData = { name, email, password, dob: dob.toISOString().slice(0, 10), terms };
+      const userData = { namecell, email, password, dob: dob.toISOString().slice(0, 10), terms };
       localStorage.setItem('userData', JSON.stringify(userData));
       form.reset();
     });
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedD) {
       const newRow = tableBody.insertRow();
       newRow.innerHTML = `
-        <td>${savedD.name}</td>
+        <td>${savedD.namecell}</td>
         <td>${savedD.email}</td>
         <td>${savedD.password}</td>
         <td>${savedD.dob}</td>
