@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const dobInput = document.getElementById('dob');
       const dob = new Date(dobInput.value);
       const terms = document.getElementById('acceptterms').checked;
-      //to specify age limit
+
       const today = new Date();
       const age = today.getFullYear() - dob.getFullYear();
       const monthDiff = today.getMonth() - dob.getMonth();
